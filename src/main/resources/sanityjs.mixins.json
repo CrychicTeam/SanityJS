@@ -3,7 +3,10 @@
   "package": "work.crash.skyraah.sanityjs.mixin",
   "compatibilityLevel": "JAVA_17",
   "minVersion": "0.8",
+  "refmap": "sanityjs.refmap.json",
   "mixins": [
+    "SanityMixin",
+    "SanityProcessorMixin"
   ],
   "client": [
   ],

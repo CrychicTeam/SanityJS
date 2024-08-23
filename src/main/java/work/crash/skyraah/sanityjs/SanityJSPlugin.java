@@ -1,18 +1,19 @@
 package work.crash.skyraah.sanityjs;
 
 import dev.latvian.mods.kubejs.KubeJSPlugin;
+import dev.latvian.mods.kubejs.script.ScriptType;
+import dev.latvian.mods.kubejs.util.ClassFilter;
+import work.crash.skyraah.sanityjs.event.SanityEvents;
 
 public class SanityJSPlugin extends KubeJSPlugin {
-    /* Basic example of a KubeJS Plugin.
-       To register your own plugins, add this class and package name to "kubejs.plugins.txt" in your Resources directory.
-    */
+    @Override
+    public void registerEvents() {
+        SanityEvents.GROUP.register();
+    }
 
     @Override
-    public void init() {
-        SanityJS.LOGGER.info("This is my KubeJS Plugin!");
-        /** If you don't know how to add content, use Kube's built-in Plugin for reference.
-        @see dev.latvian.mods.kubejs.BuiltinKubeJSPlugin
-         */
+    public void registerClasses(ScriptType type, ClassFilter filter) {
+        super.registerClasses(type, filter);
     }
 }
 
