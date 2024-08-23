@@ -55,12 +55,21 @@ repositories {
             includeGroup("com.eliotlash.mclib")
         }
     }
+
+    maven {
+        name = 'ParchmentMC'
+        url = 'https://maven.parchmentmc.org'
+    }
 }
 
 dependencies {
     /* MC Dependencies */
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
-    mappings loom.officialMojangMappings()
+    mappings loom.layered() {
+        officialMojangMappings()
+        parchment("org.parchmentmc.data:parchment-1.20.1:2023.09.03@zip")
+    }
+
     forge "net.minecraftforge:forge:${project.forge_version}"
 
     /* Kube Dependencies */
@@ -74,8 +83,8 @@ dependencies {
 
     modImplementation("curse.maven:sanity-descent-into-madness-876448:4625236")
 
-    implementation ("software.bernie.geckolib:geckolib-forge-${minecraft_version}:${geckolib_version}")
-    implementation("com.eliotlash.mclib:mclib:20")
+    modImplementation("software.bernie.geckolib:geckolib-forge-${minecraft_version}:${geckolib_version}")
+    forgeRuntimeLibrary("com.eliotlash.mclib:mclib:20")
 }
 
 processResources {
