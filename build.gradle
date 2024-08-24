@@ -17,9 +17,9 @@ java {
 loom {
     silentMojangMappingsLicense()
     forge {
-        mixinConfigs = [
+        /*mixinConfigs = [
                 "sanityjs.mixins.json"
-        ]
+        ]*/
     }
 }
 
