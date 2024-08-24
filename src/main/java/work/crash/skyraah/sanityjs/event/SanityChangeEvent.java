@@ -17,7 +17,9 @@ import java.util.UUID;
  */
 @Mod.EventBusSubscriber(modid = SanityJS.ID)
 public class SanityChangeEvent {
+
     private static final Map<UUID, Float> SANITY_MAP = new HashMap<>();
+
     @SubscribeEvent
     public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
         if (event.phase == TickEvent.Phase.START) {
