@@ -37,9 +37,14 @@ jobs:
         run: ./gradlew build
         shell: bash
 
-      - name: List files in libs directory
-        run: ls ./build/libs/
-        id: list_libs
+      - name: List artifacts
+        id: list-artifacts
+        run: |
+          echo "files=$(find ./build/libs -type f)" >> $GITHUB_ENV
 
-      - name: Upload each file separately
-        run: echo "${{ steps.list_libs.outputs.files }}" | xargs -I {} -n 1 bash -c 'echo {}; gh run upload-artifact --name "{}" --path "./build/libs/{}"'
+      - name: Upload artifacts
+        run: |
+          for file in ${{ env.files }}; do
+            echo "Uploading $file"
+            ./.github/scripts/upload-artifact.sh "$file"
+          done
