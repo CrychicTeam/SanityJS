@@ -1,30 +1,31 @@
 package work.crash.skyraah.sanityjs.event;
 
 import dev.latvian.mods.kubejs.event.EventJS;
+import dev.latvian.mods.kubejs.player.PlayerEventJS;
+import dev.latvian.mods.kubejs.typings.Info;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 
-public class SanityChangeEventJS extends EventJS {
-    private final float oldValue;
-    private final float newValue;
-    private final String type;
+/**
+ * @author skyraah
+ */
+public class SanityChangeEventJS extends PlayerEventJS {
+    private final float value;
+    private final Player player;
 
     // 构造函数初始化事件
-    public SanityChangeEventJS(float oldValue, float newValue, String type) {
-        this.oldValue = oldValue;
-        this.newValue = newValue;
-        this.type = type;
+    public SanityChangeEventJS(float value, Player player) {
+        this.value = value;
+        this.player = player;
     }
 
-    // 提供对外访问的 getter 方法
-    public float getOldValue() {
-        return oldValue;
+    @Override
+    public Player getEntity() {
+        return player;
     }
 
-    public float getNewValue() {
-        return newValue;
-    }
-
-    public String getType() {
-        return type;
+    @Info("get sanity value")
+    public float getValue() {
+        return value;
     }
 }

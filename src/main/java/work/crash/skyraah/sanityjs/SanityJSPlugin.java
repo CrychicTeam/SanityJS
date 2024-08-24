@@ -5,6 +5,9 @@ import dev.latvian.mods.kubejs.script.ScriptType;
 import dev.latvian.mods.kubejs.util.ClassFilter;
 import work.crash.skyraah.sanityjs.event.SanityEvents;
 
+/**
+ * @author skyraah
+ */
 public class SanityJSPlugin extends KubeJSPlugin {
     @Override
     public void registerEvents() {

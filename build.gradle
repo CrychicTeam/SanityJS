@@ -92,6 +92,8 @@ dependencies {
     forgeRuntimeLibrary("com.eliotlash.mclib:mclib:20")
 
     modImplementation("top.theillusivec4.curios:curios-forge:${curios_version}")
+
+    modRuntimeOnly("curse.maven:probejs-585406:5227399")
 }
 
 processResources {

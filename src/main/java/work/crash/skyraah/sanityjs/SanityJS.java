@@ -4,6 +4,9 @@ import net.minecraftforge.fml.common.Mod;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+/**
+ * @author skyraah
+ */
 @Mod(SanityJS.ID)
 public class SanityJS {
 
