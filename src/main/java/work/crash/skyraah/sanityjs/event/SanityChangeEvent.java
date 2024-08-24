@@ -39,8 +39,8 @@ public class SanityChangeEvent {
                 return;
             }
             if (lastValue != value) {
+                SanityEvents.SAN_CHANGE.post(new SanityChangeEventJS(lastValue, value, player));
                 SANITY_MAP.put(uuid, value);
-                SanityEvents.SAN_CHANGE.post(new SanityChangeEventJS(lastValue, player));
             }
         });
     }
