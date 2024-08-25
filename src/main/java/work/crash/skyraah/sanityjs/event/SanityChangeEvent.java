@@ -36,7 +36,7 @@ public class SanityChangeEvent {
             UUID uuid = player.getUUID();
             Float lastValue = SANITY_MAP.get(uuid);
             if (lastValue != null && lastValue != value) {
-                SanityEvents.SAN_CHANGE.post(new SanityChangeEventJS(lastValue, value, player));
+                SanityEvents.SAN_CHANGE.post(new SanityChangeEventJS(value, lastValue, player));
             }
             SANITY_MAP.put(uuid, value);
         }
