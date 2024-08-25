@@ -1,13 +1,10 @@
 package work.crash.skyraah.sanityjs.event;
 
-import croissantnova.sanitydim.capability.SanityProvider;
-import croissantnova.sanitydim.util.MathHelper;
 import dev.latvian.mods.kubejs.player.PlayerEventJS;
 import dev.latvian.mods.kubejs.typings.Info;
 import net.minecraft.world.entity.player.Player;
-
-import java.math.BigDecimal;
-import java.math.RoundingMode;
+import work.crash.skyraah.sanityjs.util.IMathHelper;
+import work.crash.skyraah.sanityjs.util.IPlayerSanity;
 
 /**
  * @author skyraah
@@ -29,46 +26,37 @@ public class SanityChangeEventJS extends PlayerEventJS {
     }
 
     @Info("Get the sanity value")
-    public float getValue() {
+    public float getSanity() {
         return value;
     }
 
     @Info("Get the sanity value before the change")
-    public float getPreviousValue() {
+    public float getPreviousSanity() {
         return previousValue;
     }
 
     @Info("Set the sanity value to a specific number (0-100)")
-    public void setValue(float value) {
-        player.getCapability(SanityProvider.CAP).ifPresent(sanity -> {
-            sanity.setSanity((100f - value) / 100f);
-        });
+    public void setSanity(float value) {
+        ((IPlayerSanity) player).setSanity(value);
     }
 
     @Info("Increase sanity")
-    public void addValue(float value) {
-        player.getCapability(SanityProvider.CAP).ifPresent(sanity -> {
-            sanity.setSanity((sanity.getSanity() - value) / 100f);
-        });
+    public void addSanity(float value) {
+        ((IPlayerSanity) player).addSanity(value);
     }
 
     @Info("Convert a number to a value between 0 and 1")
     public float clampNorm(float value) {
-        return MathHelper.clampNorm(value);
+        return IMathHelper.clampNorm(value);
     }
 
     @Info("Convert the value between 0 and 1 into a readable number")
     public float unclampNorm(float normalizedValue) {
-        return normalizedValue * 100f - 100f;
+        return IMathHelper.unclampNorm(normalizedValue);
     }
 
     @Info("Truncate a number to n significant decimal places (rounding mode)")
     public float approximation(float value, int n) {
-        if (n < 0) {
-            throw new IllegalArgumentException("The number of decimal places must be non-negative.");
-        }
-        BigDecimal bd = new BigDecimal(Double.toString(value));
-        bd = bd.setScale(n, RoundingMode.HALF_UP);
-        return Math.abs(bd.floatValue());
+        return IMathHelper.approximation(value, n);
     }
 }
