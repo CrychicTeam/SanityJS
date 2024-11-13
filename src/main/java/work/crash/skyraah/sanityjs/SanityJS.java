@@ -12,5 +12,4 @@ public class SanityJS {
 
     public static final String ID = "sanityjs";
     public static final Logger LOGGER = LogManager.getLogger();
-
 }

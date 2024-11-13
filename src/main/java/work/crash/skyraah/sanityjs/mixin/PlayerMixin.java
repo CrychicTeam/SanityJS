@@ -22,6 +22,9 @@ public abstract class PlayerMixin implements IPlayerSanity {
     @Unique
     public float sanity;
 
+    @Unique
+    public float sanityJS$recordSanity;
+
     @Inject(method = "<init>", at = @At("TAIL"))
     public void onConstruct(Level level, BlockPos pos, float yRot, GameProfile gameProfile, CallbackInfo ci) {
         this.sanity = getSanity();

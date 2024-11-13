@@ -6,19 +6,13 @@ import net.minecraft.world.entity.player.Player;
 import work.crash.skyraah.sanityjs.util.IMathHelper;
 import work.crash.skyraah.sanityjs.util.IPlayerSanity;
 
-/**
- * @author skyraah
- */
-@Info("Handle Sanity Change Event caused by Passive Events.")
-public class SanityChangeEventJS extends PlayerEventJS {
-    private final float value;
-    private final float previousValue;
+public class SanityTickEventJS extends PlayerEventJS {
     private final Player player;
+    private final float sanity;
 
-    public SanityChangeEventJS(float value, float previousValue, Player player) {
-        this.value = value;
-        this.previousValue = previousValue;
+    public SanityTickEventJS(Player player) {
         this.player = player;
+        this.sanity = ((IPlayerSanity) player).getSanity();
     }
 
     @Override
@@ -26,17 +20,9 @@ public class SanityChangeEventJS extends PlayerEventJS {
         return player;
     }
 
-    @Info("Get the sanity value")
     public float getSanity() {
-        return value;
-    }
-
-    @Info("Get the sanity value before the change")
-    public float getPreviousSanity() {
-        return previousValue;
-    }
-
-    @Info("Set the sanity value to a specific number (0-100)")
+        return sanity;
+    }@Info("Set the sanity value to a specific number (0-100)")
     public void setSanity(float value) {
         ((IPlayerSanity) player).setSanity(value);
     }

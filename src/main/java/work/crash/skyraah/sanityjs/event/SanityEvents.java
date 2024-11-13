@@ -9,5 +9,6 @@ import dev.latvian.mods.kubejs.event.EventHandler;
 public interface SanityEvents {
     EventGroup GROUP = EventGroup.of("SanityEvents");
 
-    EventHandler SAN_CHANGE = GROUP.server("change", () -> SanityChangeEventJS.class);
+    EventHandler SAN_CHANGE = GROUP.server("change", () -> SanityChangeEventJS.class).hasResult();
+    EventHandler INDICATOR_RENDER = GROUP.client("indicatorRender", () -> SanityIndicatorRenderEventJS.class).hasResult();
 }

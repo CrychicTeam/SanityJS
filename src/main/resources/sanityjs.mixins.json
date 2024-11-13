@@ -5,9 +5,11 @@
   "minVersion": "0.8",
   "refmap": "sanityjs.refmap.json",
   "mixins": [
-    "PlayerMixin"
+    "PlayerMixin",
+    "SanityProcessorMixin"
   ],
   "client": [
+    "GuiHandlerMixin"
   ],
   "injectors": {
     "defaultRequire": 1
