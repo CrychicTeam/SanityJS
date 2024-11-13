@@ -6,6 +6,9 @@ import net.minecraft.world.entity.player.Player;
 import work.crash.skyraah.sanityjs.util.IMathHelper;
 import work.crash.skyraah.sanityjs.util.IPlayerSanity;
 
+/**
+ * @author M1hono
+ */
 public class SanityTickEventJS extends PlayerEventJS {
     private final Player player;
     private final float sanity;

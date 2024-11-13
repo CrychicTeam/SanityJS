@@ -10,7 +10,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import work.crash.skyraah.sanityjs.event.SanityEvents;
 import work.crash.skyraah.sanityjs.event.SanityIndicatorRenderEventJS;
 
-
+/**
+ * @author M1hono
+ * This calss is for all rendering stuff of Sanity.
+ */
 @Mixin(GuiHandler.class)
 public class GuiHandlerMixin {
     @Inject(method = "renderSanityIndicator", at = @At("HEAD"), cancellable = true, remap = false)

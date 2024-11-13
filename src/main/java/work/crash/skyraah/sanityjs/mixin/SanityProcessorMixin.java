@@ -13,6 +13,9 @@ import work.crash.skyraah.sanityjs.event.SanityChangeEventJS;
 import work.crash.skyraah.sanityjs.event.SanityEvents;
 import work.crash.skyraah.sanityjs.util.IPlayerSanity;
 
+/**
+ * @author M1hono
+ */
 @Mixin(SanityProcessor.class)
 public abstract class SanityProcessorMixin {
 
