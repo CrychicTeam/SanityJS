@@ -39,9 +39,11 @@ public abstract class SanityProcessorMixin {
     @Inject(method = "calcPassive", at = @At("TAIL"), cancellable = true, remap = false)
     private static void sanityJS$calcPassive(ServerPlayer player, ISanity sanity, CallbackInfoReturnable<Float> cir) {
         var value = cir.getReturnValue();
-        var changeEvent = SanityEvents.SAN_CHANGE.post(new SanityChangeEventJS(value, ((IPlayerSanity) player).getSanity(), player));
-        if (changeEvent.interruptFalse()) {
-            cir.setReturnValue(0.F);
+        if (value != 0) {
+            var changeEvent = SanityEvents.SAN_CHANGE.post(new SanityChangeEventJS(value, ((IPlayerSanity) player).getSanity(), player));
+            if (changeEvent.interruptFalse()) {
+                cir.setReturnValue(0.F);
+            }
         }
     }
 }
