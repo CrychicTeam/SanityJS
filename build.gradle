@@ -72,7 +72,7 @@ dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings loom.layered() {
         officialMojangMappings()
-        parchment("org.parchmentmc.data:parchment-1.20.1:2023.09.03@zip")
+//        parchment("org.parchmentmc.data:parchment-1.19.2:2023.09.03@zip")
     }
 
     forge "net.minecraftforge:forge:${project.forge_version}"
@@ -86,14 +86,14 @@ dependencies {
     compileOnly(annotationProcessor("io.github.llamalad7:mixinextras-common:0.3.2"))
     implementation(include("io.github.llamalad7:mixinextras-forge:0.3.2"))
 
-    modImplementation("curse.maven:sanity-descent-into-madness-876448:4625236")
+    modImplementation("curse.maven:sanity-descent-into-madness-876448:4632886")
 
-    modImplementation("software.bernie.geckolib:geckolib-forge-${minecraft_version}:${geckolib_version}")
+    modImplementation("software.bernie.geckolib:geckolib-forge-1.19:${geckolib_version}")
     forgeRuntimeLibrary("com.eliotlash.mclib:mclib:20")
 
     modImplementation("top.theillusivec4.curios:curios-forge:${curios_version}")
 
-    modRuntimeOnly("curse.maven:probejs-585406:5227399")
+    modRuntimeOnly("curse.maven:probejs-585406:5002340")
 }
 
 processResources {

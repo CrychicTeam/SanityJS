@@ -1,20 +1,20 @@
 package work.crash.skyraah.sanityjs.event;
 
+import com.mojang.blaze3d.vertex.PoseStack;
 import dev.latvian.mods.kubejs.client.ClientEventJS;
 import dev.latvian.mods.kubejs.typings.Info;
-import net.minecraft.client.gui.GuiGraphics;
 import net.minecraftforge.client.gui.overlay.ForgeGui;
 
 public class SanityIndicatorRenderEventJS extends ClientEventJS {
     private final ForgeGui gui;
-    private final GuiGraphics guiGraphics;
+    private final PoseStack poseStack;
     private final float partialTick;
     private final int scw;
     private final int sch;
 
-    public SanityIndicatorRenderEventJS(ForgeGui gui, GuiGraphics guiGraphics, float partialTick, int scw, int sch) {
+    public SanityIndicatorRenderEventJS(ForgeGui gui, PoseStack poseStack, float partialTick, int scw, int sch) {
         this.gui = gui;
-        this.guiGraphics = guiGraphics;
+        this.poseStack = poseStack;
         this.partialTick = partialTick;
         this.scw = scw;
         this.sch = sch;
@@ -31,8 +31,8 @@ public class SanityIndicatorRenderEventJS extends ClientEventJS {
     }
 
     @Info("get the GuiGraphics, used to add your custom gui.")
-    public GuiGraphics getGuiGraphics() {
-        return guiGraphics;
+    public PoseStack getGuiGraphics() {
+        return poseStack;
     }
 
     @Info("get the screen width")
